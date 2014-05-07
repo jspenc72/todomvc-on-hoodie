@@ -9,30 +9,35 @@ angular.module('todomvc')
 	.controller('TodoCtrl', function TodoCtrl($scope, $routeParams, $filter, todoStorage) {
 		'use strict';
 
-		// var todos = $scope.todos = todoStorage.get();
-		
-		// start empty and update if ready
+		// Start with an empty array. 
+		// We will update this array when ready.
+		// Angular will handle the UI updates for us then,
+		// so it is ok to start out empty.
 		var todos = $scope.todos = [];
 
 		$scope.newTodo = '';
 		$scope.editedTodo = null;
 
 		$scope.$watch('todos', function (newTodoList, oldTodoList) {
+			// This will watch the todos array for changes.
+			// If changes occur, this will build some stats about
+			// the todolist ... 
 			$scope.remainingCount = $filter('filter')(todos, { completed: false }).length;
 			$scope.completedCount = todos.length - $scope.remainingCount;
 			$scope.allChecked = !$scope.remainingCount;
-
-			// this will just forcepush everything	
-			// if (newValue !== oldValue) { // This prevents unneeded calls to the local storage
-				// todoStorage.put(todos);
-			// }
 			
-			// since we work with read entity data, we need to improve here
+			// .. and communicates the updates to the store after that.
 			todoStorage
 				.performDataSync(newTodoList, oldTodoList)
 				.done(function(storedTodos) {
+					// Updating the complete todolist here is important,
+					// since newly created data don't have a document id yet.
+					// Using this way, we also get rid of already deleted objects,
+					// that still invisibly lurk around in the array.
+					
 					todos = $scope.todos = storedTodos;
 			});
+
 		}, true);
 
 		// Monitor the current route for changes and adjust the filter accordingly.
@@ -50,6 +55,9 @@ angular.module('todomvc')
 				return;
 			}
 
+			// When adding a todo item, we just add a plain javascript object
+			// to the todos array. Angular watches this and calls
+			// todoStorage.performDataSync for us.
 			todos.push({
 				title: newTodo,
 				completed: false
@@ -59,6 +67,7 @@ angular.module('todomvc')
 		};
 
 		$scope.updateTodoList = function updateTodoList() {
+			// Just read the todolist.
 			todoStorage.get().done(function(storedTodos) {
 				todos = $scope.todos = storedTodos;
 			});
