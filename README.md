@@ -22,7 +22,7 @@ This is a very young work in progress. The repository already contains the "arch
 
 * angularjs
 
-### NOT Running on Hoodie
+### NOT Running on Hoodie yet
 
 * agilityjs
 * angularjs-perf
