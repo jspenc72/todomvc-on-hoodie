@@ -18,11 +18,11 @@ See this as an starting point to get an idea, how hoodie can be merged into you 
 
 This is a very young work in progress. The repository already contains the "architecture-examples" folder of todomvc. However they don't build all up on hoodie yet. So here is a progresslist:
 
-### Examples Running on Hoodie
+### TodoMVC Examples Running on Hoodie
 
 * angularjs
 
-### NOT Running on Hoodie yet
+### Help us implement Hoodie for ...
 
 * agilityjs
 * angularjs-perf
