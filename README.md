@@ -6,7 +6,7 @@ Implementations of the hoodie store using Backbone.js, Ember.js, AngularJS, and 
 
 "We want to enable you to build complete web apps in days, without having to worry about backends, databases or servers, all with an open-source library that's as simple to use as jQuery." -- http://hood.ie/
 
-Hoodie is very good for building rapid prototyped web applications. It currently feels a bit like the missing piece for the numerous MV* applications out there. They all come with wonderful and smart solutions toward standard View and Controller problems. Sadly most of the time they totally lack a convenient way for data-storage. You almos always need to write you own backends. Or sometimes you can't even write a backend application, because you are a frontend developer only. Whoops! There went your personal rapid prototype. 
+Hoodie is very good for building rapid prototyped web applications. It currently feels a bit like the missing piece for the numerous MV* applications out there. They all come with wonderful and smart solutions toward standard View and Controller problems. Sadly most of the time they totally lack a convenient way for data-storage. You almost always need to write you own backends. Or sometimes you can't even write a backend application, because you are a frontend developer only. Whoops! There went your personal rapid prototype. 
 
 ## Hoodie can fix that
 
